@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,56 +19,70 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView show_board;
     final static String[] data = {
-            "func_1", "func_2", "func_3", "func_4", "func_5", "func_6",
-            "func_7", "func_8", "func_9", "func_10", "func_11", "func_12"
+            "获取品牌", "获取型号", "获取手机分辨率", "获取运营商", "获取联网方式", "获取IMEI",
+            "获取MEID", "获取操作系统", "获取wifi当前ip地址", "GPRS连接下的ip", "获取蓝牙地址", "获取序列号"
     };
 
+    private DeviceInfoModel deviceInfoModel = DeviceInfoModel.getInstance();
+
     private void func_1(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getPhoneBrand();
+        show_board.setText(param + ":" + result);
     }
 
     private void func_2(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getPhoneMODEL();
+        show_board.setText(param + ":" + result);
     }
 
     private void func_3(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getResolution(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_4(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getNetOperator(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_5(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getNetMode(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_6(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getIMEI(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_7(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getMEID(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_8(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getOS();
+        show_board.setText(param + " : " + result);
     }
 
     private void func_9(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getLocalIpAddress(this);
+        show_board.setText(param + ":" + result);
     }
 
     private void func_10(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getLocalIpAddress();
+        show_board.setText(param + ":" + result);
     }
 
     private void func_11(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getBtAddressByReflection();
+        show_board.setText(param + ":" + result);
     }
 
     private void func_12(String param) {
-        show_board.setText(param);
+        String result = deviceInfoModel.getSerialNumber();
+        show_board.setText(param + ":" + result);
     }
 
 
